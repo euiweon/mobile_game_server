@@ -1,2 +1,7 @@
-# mobile_game_server
-mobile game server(test용)
+# 모바일 게임용 웹서버
+
+
+- Node.js 로 만든  게임용 웹서버
+- DB(MySQL, Redis) 연결이 안되어서 기능은 대부분 제대로 동작안함. 
+- 간단한 우편(개인&전체), 쿠폰(애드브릭스), 사용자 관리, ~~랭킹~~ 등을 구현
+
