@@ -1,0 +1,18 @@
+//
+   Created by euiweon on 2017-02-20.
+
+extends layout
+
+block content
+    form(method="POST" action="/webadmin/login")
+        ul(data-role="listview" data-inset="true")
+            li(data-role="list-divider")
+                h2 로그인
+            li.ui-field-contain
+                label(for="username") 아이디 :
+                input#username(type="text" name="username" value="guest")
+            li.ui-field-contain
+                label(for="password") 암호   :
+                input#password(type="password" name="password" value="guest")
+            li.ui-field-contain
+                input(type="submit" value="확인")

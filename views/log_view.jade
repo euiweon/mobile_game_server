@@ -1,0 +1,9 @@
+//
+   Created by Eui-Weon on 2017-06-13.
+
+extend layout
+
+block content
+    form(method="GET" action="/webadmin/log/" onsubmit="location.href = this.action + this.user_id.value; return false;")
+        input(type="search" name="user_id" placeholder="User ID" value=user_id)
+        input(type="submit" value="Search")

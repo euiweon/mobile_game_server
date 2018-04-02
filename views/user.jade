@@ -1,0 +1,57 @@
+//
+   Created by euiweon on 2017-02-21.
+
+extend layout
+
+block content
+    form(method="GET" action="/webadmin/users/" onsubmit="location.href = this.action + this.user_id.value; return false;")
+        input(type="search" name="user_id" placeholder="User ID" value=user_id)
+        input(type="submit" value="Search")
+
+    if (error)
+        li
+            strong Error Code : #{error.errno}
+        li
+            strong Error Message : #{error.message}
+        h1= message
+        h2= error.status
+        pre #{error.stack}
+    if (user_info)
+        .ui-grid-a
+            ul(data-role="listview" data-inset="true")
+                li(data-role="list-divider")
+                    h2 [#{user_info.user_name}] User Info
+                    li User ID  :  #{user_info.user_id}
+                    li User Name : #{user_info.user_name}
+                    li Device ID  :  #{user_info.device_id}
+                    li Facebook ID  :  #{user_info.facebook_id}
+                    li Play Game ID  :  #{user_info.playgame_id}
+                    li GameCenter ID  :  #{user_info.gamecenter_id}
+
+
+
+
+            .ui-block-a
+                ul(data-role="listview" data-inset="true")
+                    li(data-role="list-divider")
+                        h2 랭킹 참여 정보
+                        if (ranking_list.length > 0)
+                            each user in ranking_list
+                                li
+                                    form(method="POST")
+                                        strong Stage ID : #{user.stage_id}
+                                        p #{user.order} 등
+                                        p User ID : #{user_id}
+                                        p 점수 : #{user.score}
+
+                                        input(type="hidden" name="stage_id" value=user.stage_id)
+                                        input(type="hidden" name="user_id" value=(user_id))
+                                        input(type="hidden" name="action" value="remove_ranking")
+                                        input(type="submit" value="랭킹삭제")
+            .ui-block-b
+                 div.ui-body
+                     div(data-role="collapsible")
+                         h2 User Log
+                         form(method="POST")
+                             ul(data-role="listview" data-inset="true")
+                                 label(for="log_") 테스트 로그

@@ -1,0 +1,77 @@
+//
+   Created by euiweon on 2017-02-21.
+
+extend layout
+
+block content
+    .ui-grid-a
+        if (error)
+            strong #{error.errno}
+            strong #{error.errorMessage}
+        .ui-block-a
+            div.ui-body
+                if (ranking_info_name)
+                    div(data-role="collapsible")
+                        h2 랭킹 정보 추가
+                        form(method="POST")
+                            li.ui-field-contain
+                                label(for="ranking_info_name") 랭킹 이름:
+                                input#ranking_name(type="text" name="ranking_info_name" value="랭킹" required)
+                            li.ui-field-contain
+                                label(for="ranking_info_category") 랭킹 카테고리:
+                                input#ranking_info_category(type="text" name="ranking_info_category" value= "#{ranking_info_category}" )
+                            li.ui-field-contain
+                                label(for="ranking_info_start_date") 시작 날짜:
+                                input#ranking_start_date(type="date" name="ranking_info_start_date" value="#{default_start_date}" placeholder="유효기간 입력" )
+                            li.ui-field-contain
+                                label(for="ranking_info_end_date") 종료 날짜:
+                                input#ranking_end_date(type="date" name="ranking_info_end_date" value="#{default_end_date}" placeholder="유효기간 입력" )
+                            li.ui-field-contain
+                                input(type="hidden" name="action" value="ranking_create")
+                                input(type="submit" value="만들기")
+
+
+                if (ranking_id_data_list)
+                    ul(data-role="listview" data-inset="true")
+                        li(data-role="list-divider")
+                            h2 랭킹 정보
+                            each ranking_id_data in ranking_id_data_list
+                                li
+                                    form(method="POST" )
+                                        p 랭킹 이름  : #{ranking_id_data.ranking_name}
+                                        p 랭킹 ID : #{ranking_id_data.ranking_id}
+                                        p 랭킹 카테고리  : #{ranking_id_data.ranking_category}
+                                        p Start Date  : #{ranking_id_data.ranking_start_date}
+                                        p End Date  : #{ranking_id_data.ranking_end_date}
+                                        input(type="hidden" name="ranking_real_id" value=ranking_id_data.ranking_real_id)
+                                        input(type="hidden" name="action" value="remove_ranking_info")
+                                        input(type="submit" value="랭킹정보삭제")
+        .ui-block-b
+            div.ui-body
+                form(method="GET" action="/webadmin/ranking/" onsubmit="location.href = this.action + this.stage_id.value; return false;")
+                    input(type="search" name="stage_id" placeholder="Stage ID" value=stage_id)
+                    input(type="submit" value="Search")
+
+                if (ranking_list)
+                    ul(data-role="listview" data-inset="true")
+                        li(data-role="list-divider")
+                            h2 [#{stage_id}] Ranking Data
+
+                        if (ranking_list.length > 0)
+                            each user in ranking_list
+                                li
+                                    form(method="POST")
+                                        strong #{user.order} 등
+                                        p User ID : #{user.user_id}
+                                        p 점수 : #{user.score}
+
+
+                                        input(type="hidden" name="stage_id" value=stage_id)
+                                        input(type="hidden" name="user_id" value=(user.user_id))
+                                        input(type="hidden" name="action" value="remove_ranking")
+                                        input(type="submit" value="랭킹삭제")
+
+
+
+
+

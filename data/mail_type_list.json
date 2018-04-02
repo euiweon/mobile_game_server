@@ -1,0 +1,169 @@
+{
+	"data": [
+		{
+			"Type": "Ruby",
+			"ID": 100,
+			"icon_img": "Icon_gift"
+		},
+		{
+			"Type": "Gold",
+			"ID": 101,
+			"icon_img": "Icon_gift"
+		},
+		{
+			"Type": "Fame",
+			"ID": 102,
+			"icon_img": "Icon_gift"
+		},
+		{
+			"Type": "Piece",
+			"ID": 103,
+			"icon_img": "Icon_gift"
+		},
+		{
+			"Type": "0 : Artifact_0",
+			"ID": 0,
+			"icon_img": "Icon_Artifact_0"
+		},
+		{
+			"Type": "1 : Artifact",
+			"ID": 1,
+			"icon_img": "Icon_Artifact_1"
+		},
+		{
+			"Type": "2 : Artifact",
+			"ID": 2,
+			"icon_img": "Icon_Artifact_2"
+		},
+		{
+			"Type": "3 : Artifact",
+			"ID": 3,
+			"icon_img": "Icon_Artifact_3"
+		},
+		{
+			"Type": "4 : Artifact",
+			"ID": 4,
+			"icon_img": "Icon_Artifact_4"
+		},
+		{
+			"Type": "5 : Artifact",
+			"ID": 5,
+			"icon_img": "Icon_Artifact_5"
+		},
+		{
+			"Type": "6 : Artifact",
+			"ID": 6,
+			"icon_img": "Icon_Artifact_6"
+		},
+		{
+			"Type": "7 : Artifact",
+			"ID": 7,
+			"icon_img": "Icon_Artifact_7"
+		},
+		{
+			"Type": "8 : Artifact",
+			"ID": 8,
+			"icon_img": "Icon_Artifact_8"
+		},
+		{
+			"Type": "9 : Artifact",
+			"ID": 9,
+			"icon_img": "Icon_Artifact_9"
+		},
+		{
+			"Type": "10 : Artifact",
+			"ID": 10,
+			"icon_img": "Icon_Artifact_10"
+		},
+		{
+			"Type": "11 : Artifact",
+			"ID": 11,
+			"icon_img": "Icon_Artifact_11"
+		},
+		{
+			"Type": "12 : Artifact",
+			"ID": 12,
+			"icon_img": "Icon_Artifact_12"
+		},
+		{
+			"Type": "13 : Artifact",
+			"ID": 13,
+			"icon_img": "Icon_Artifact_13"
+		},
+		{
+			"Type": "14 : Artifact",
+			"ID": 14,
+			"icon_img": "Icon_Artifact_14"
+		},
+		{
+			"Type": "15 : Artifact",
+			"ID": 15,
+			"icon_img": "Icon_Artifact_15"
+		},
+		{
+			"Type": "16 : Artifact",
+			"ID": 16,
+			"icon_img": "Icon_Artifact_16"
+		},
+		{
+			"Type": "17 : Artifact",
+			"ID": 17,
+			"icon_img": "Icon_Artifact_17"
+		},
+		{
+			"Type": "18 : Artifact",
+			"ID": 18,
+			"icon_img": "Icon_Artifact_18"
+		},
+		{
+			"Type": "19 : Artifact",
+			"ID": 19,
+			"icon_img": "Icon_Artifact_19"
+		},
+		{
+			"Type": "20 : Artifact",
+			"ID": 20,
+			"icon_img": "Icon_Artifact_20"
+		},
+		{
+			"Type": "21 : Artifact",
+			"ID": 21,
+			"icon_img": "Icon_Artifact_21"
+		},
+		{
+			"Type": "22 : Artifact",
+			"ID": 22,
+			"icon_img": "Icon_Artifact_22"
+		},
+		{
+			"Type": "23 : Artifact",
+			"ID": 23,
+			"icon_img": "Icon_Artifact_23"
+		},
+		{
+			"Type": "24 : Artifact",
+			"ID": 24,
+			"icon_img": "Icon_Artifact_24"
+		},
+		{
+			"Type": "25 : Artifact",
+			"ID": 25,
+			"icon_img": "Icon_Artifact_25"
+		},
+		{
+			"Type": "26 : Artifact",
+			"ID": 26,
+			"icon_img": "Icon_Artifact_26"
+		},
+		{
+			"Type": "27 : Artifact",
+			"ID": 27,
+			"icon_img": "Icon_Artifact_27"
+		},
+		{
+			"Type": "28 : Artifact",
+			"ID": 28,
+			"icon_img": "Icon_Artifact_28"
+		}
+	]
+}

@@ -1,0 +1,45 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    title 웹 관리자 페이지
+
+    link(rel="stylesheet", href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css")
+    script(src="//code.jquery.com/jquery-2.2.4.min.js")
+    //script.
+    //  $(document).on("mobileinit", function() {
+    //    $.mobile.ajaxEnabled = false;
+    //  });
+    script(src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
+    script(src="//timeago.yarp.com/jquery.timeago.js")
+
+
+    script.
+        jQuery(document).ready(function () {
+            jQuery("time.timeago").timeago();
+        });
+
+
+  body
+    div(data-role="page")
+      div(data-role="header" data-position="fixed")
+        h2 Game Admin Tool
+      div(data-role="footer" data-position="fixed")
+        div(data-role="navbar" data-iconpos="top" )
+          ul
+            li
+              a(href="/webadmin" data-icon="home") 홈
+            li
+              a(href="/webadmin/users" data-icon="user") 유저
+            li
+              a(href="/webadmin/mail" data-icon="mail") 우편
+            li
+              a(href="/webadmin/log" data-icon="bullets") 로그
+            li
+              a(href="/webadmin/user_data" data-icon="gear") 유저데이터
+
+      div.ui-content(role="main")
+        block content
+

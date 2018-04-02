@@ -1,0 +1,42 @@
+extend layout
+
+block content
+   h2 사용자 데이터 관리
+   form(method="GET" action="/webadmin/user_data/" onsubmit="location.href = this.action + this.account_id.value; return false;")
+      input(type="search" name="account_id" placeholder="Account ID" value=account_id)
+      input(type="submit" value="Search")
+
+   .ui-grid-a
+      .ui-block-a
+         if (errorcode)
+            p Error Code : #{errorcode}
+            p Error Message : #{errormessage}
+
+      .ui-block-b
+         if (flag == 0 || flag == 1)
+            div.ui-body
+               ul(data-role="listview" data-inset="true")
+                  li(data-role="list-divider")
+                     h2 데이터 플래그 변경
+                     li.ui-field-contain
+                        form(method="POST")
+                           if (flag == 1)
+                              input(type="hidden" name="action_change" value="flag_disable")
+                              li 로드 가능상태
+                           else
+                              input(type="hidden" name="action_change" value="flag_enable")
+                              li 저장 가능상태
+                           input(type="hidden" name="account_id" value=account_id)
+                           input(type="hidden" name="action" value="flag_change")
+                           input(type="submit" value="변경")
+      if (flag == 0 || flag == 1)
+         div.ui-body
+            ul(data-role="listview" data-inset="true")
+               li(data-role="list-divider")
+                  h2 사용자 데이터
+                  li.ui-field-contain
+                     form(method="POST")
+                        input(type="hidden" name="action" value="data_save")
+                        input(type="hidden" name="account_id" value=account_id)
+                        input(type="submit" value="저장")
+                        textarea(style="resize: none;" name="user_data" ) #{save_data}

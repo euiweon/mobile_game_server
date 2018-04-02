@@ -1,0 +1,44 @@
+//
+   Created by euiweon on 2017-02-21.
+
+extends layout
+
+block content
+    .ui-grid-a
+
+        ul(data-role="listview" data-inset="true")
+            li(data-role="list-divider")
+                h2 서버 정보
+                li 서버 이름 :
+                    strong  #{global.servername}
+                li Environment:
+                    strong  Production
+                li 서버 버전:
+                    span  #{global.server_version}
+        .ui-block-a
+            ul(data-role="listview" data-inset="true")
+                li(data-role="list-divider")
+                    h2 게임 정보
+                    li.ui-field-contain
+                        form(method="POST")
+                            li.ui-field-contain
+                                label(for="android_version") 안드로이드 버전 :
+                                input#android_version(type="text" name="android_version" value= "#{appinfo.android_version}" )
+                                label(for="android_version") 안드로이드 버전코드 :
+                                input#android_short_version(type="text" name="android_short_version" value= "#{appinfo.android_short_version}" )
+                                label(for="android_version") 안드로이드 해시키 :
+                                input#android_hash_key(type="text" name="android_hash_key" value= "#{appinfo.android_hash_key}" )
+                                label
+                                input(type="hidden" name="action" value="android_version_change")
+                                input(type="submit" value="변경")
+                    li.ui-field-contain
+                        form(method="POST")
+                            li.ui-field-contain
+                                label(for="ios_version") IOS 버전 :
+                                input#ios_version(type="text" name="ios_version" value= "#{appinfo.ios_version}" )
+                                label(for="ios_short_version") IOS 버전코드 :
+                                input#ios_short_version(type="text" name="ios_short_version" value= "#{appinfo.ios_short_version}" )
+                                label
+                                input(type="hidden" name="action" value="ios_version_change")
+                                input(type="submit" value="변경")
+

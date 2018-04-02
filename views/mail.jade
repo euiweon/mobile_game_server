@@ -1,0 +1,122 @@
+//
+   Created by euiweon on 2017-02-21.
+extend layout
+
+block content
+    .ui-grid-a
+        if (error)
+            li
+                strong Error Code : #{error.errno}
+            li
+                strong Error Message : #{error.message}
+        .ui-block-a
+            div.ui-body
+                ul(data-role="listview" data-inset="true")
+                    li(data-role="list-divider")
+                        h2 전체 우편
+
+                div(data-role="collapsible")
+                    h2 전체 우편 보내기
+                    form(method="POST")
+                        li.ui-field-contain
+                            select#gift_type(name="notice_type")
+                                - for item in gift_item_type_list
+                                    option #{item}
+                            label 갯수(레벨):
+                            input#gift_cash(type="number" name="notice_count" value="0")
+                        li.ui-field-contain
+                            label(for="gift_message") 메시지:
+                            input#gift_message(type="text" name="notice_message" value="보상" required)
+                        li.ui-field-contain
+                            label(for="gift_enddate") 유효기간:
+                            input#gift_enddate(type="date" name="notice_enddate" value="#{default_end_date}" placeholder="유효기간 입력" )
+                        li.ui-field-contain
+                            input(type="hidden" name="action" value="notice")
+                            input(type="submit" value="보내기")
+
+
+                if (notice_list)
+                    ul(data-role="listview" data-inset="true")
+                        li(data-role="list-divider")
+                            h2 전체우편
+                            each notice_data in notice_list
+                                li
+                                    form(method="POST" )
+                                        input(type="hidden" name="notice_id" value=(notice_data.notice_id))
+                                        span X #{notice_data.mail_item_count}
+                                            p Message  : #{notice_data.mail_item_message}
+                                            p Mail ID : #{notice_data.notice_id}
+                                            p End Date  : #{notice_data.end_date}
+        .ui-block-b
+            div.ui-body
+                ul(data-role="listview" data-inset="true")
+                    li(data-role="list-divider")
+                        h2 일반우편
+
+                form(method="GET" action="/webadmin/mail/" onsubmit="location.href = this.action + this.user_id.value; return false;")
+                    input(type="search" name="user_id" placeholder="User ID" value=user_id)
+                    input(type="submit" value="Search")
+                div.ui-body
+                    if (user_id)
+                        div(data-role="collapsible")
+                            h2 일반 우편 보내기
+                            form(method="POST")
+                                li.ui-field-contain
+                                    select#gift_type(name="gift_type")
+                                        - for item in gift_item_type_list
+                                            option #{item}
+                                    label(for="gift_count") 갯수(레벨):
+                                    input#gift_cash(type="number" name="gift_count" value="0")
+                                li.ui-field-contain
+                                    label(for="gift_message") 메시지:
+                                    input#gift_message(type="text" name="gift_message" value="보상 " required)
+                                li.ui-field-contain
+                                    label(for="gift_enddate") 유효기간:
+                                    input#gift_enddate(type="date" name="gift_enddate" value="#{default_end_date}" placeholder="유효기간 입력" )
+                                li.ui-field-contain
+                                    input(type="hidden" name="user_id" value=user_id)
+                                    input(type="hidden" name="action" value="gift")
+                                    input(type="submit" value="보내기")
+
+
+                    div.ui-body
+                        if (mail_list)
+                            ul(data-role="listview" data-inset="true")
+                                li(data-role="list-divider")
+                                    h2 Mail List
+                                each mail_data in mail_list
+                                    li
+                                        form(method="POST" )
+                                            input(type="hidden" name="mail_id" value=(mail_data.mail_id))
+                                            if (user_id)
+                                                input(type="hidden" name="user_id" value=user_id)
+                                            if (0 == mail_data.mail_item_type)
+                                                span X #{mail_data.mail_item_count}
+                                                    p Message  : #{mail_data.mail_item_message}
+                                                    p Mail ID : #{mail_data.mail_id}
+                                                    p End Date  : #{mail_data.end_date}
+                                            else if (1 == mail_data.mail_item_type)
+                                                span X #{mail_data.mail_item_count}
+                                                    p Message  : #{mail_data.mail_item_message}
+                                                    p Mail ID : #{mail_data.mail_id}
+                                                    p End Date  : #{mail_data.end_date}
+                                            else
+                                                span X #{mail_data.mail_item_count}
+                                                    p Message  : #{mail_data.mail_item_message}
+                                                    p Mail ID : #{mail_data.mail_id}
+                                                    p End Date  : #{mail_data.end_date}
+
+                                            if (mail_data.mail_type == 'notice')
+                                                p 카테고리 : 전체 우편
+                                            else
+                                                p 카테고리 : 일반 우편
+
+                                            if (0 == mail_data.flag)
+                                                input(type="hidden" name="action" value="mail_data_disable")
+                                                input(type="submit" value="비활성화")
+                                            else
+                                                input(type="hidden" name="action" value="mail_data_enable")
+                                                input(type="submit" value="활성화")
+
+
+
